@@ -44,11 +44,35 @@ h1 {
 
 input {
   padding: 1rem;
-  width: 70%;
-  margin-right: 1rem;
+  width: 50%;
+  margin: 3vw 3vw 3vw 0;
   border-radius: 10px;
 }
 
 .add {
+  border-radius: 10px;
   padding: 1rem;
+  color: white;
+  background: #159957; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #155799,
+    #159957
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #155799,
+    #159957
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.taskout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem;
+}
+
+span {
+  margin: 0 1rem;
 }
