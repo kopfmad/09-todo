@@ -10,10 +10,32 @@ function App() {
 
   function addTask() {
     if (taskInput.length > 0) {
-      setTaskList([...taskList, taskInput]);
+      setTaskList([...taskList, taskInput]); //aqui eu retorno um ARRAY, que é composto do
       setTaskInput("");
     }
   }
+
+  function deleteItem(indice) {
+    //quando for trabalhar com remoção de itens de array, eu crio uma copia, depois eu removo, e entao eu atualizo o state
+    let copia = [...taskList];
+    copia.splice(indice, 1);
+    setTaskList([...copia]);
+  }
+
+  //////////////////////////////////////
+
+  //Quando eu uso o .map, além de passar uma função para cada item do array, eu também crio um index para cada item. Eu uso esse mesmo index na função delete. Assim a cada vez que o loop for criar um item por exemplo de index 2, ele também já passa 2 no delete.
+  let tasklistmapped = taskList.map((task, index) => {
+    return (
+      <div className="taskout" key={Math.random()}>
+        <span>{task}</span>
+        <span>{index}</span>
+        <i className="far fa-trash-alt" onClick={() => deleteItem(index)}></i>
+      </div>
+    );
+  });
+
+  //////////////////////////////////////
 
   return (
     <div className="App">
@@ -29,14 +51,7 @@ function App() {
           <button className="add" onClick={addTask}>
             ADD
           </button>
-          {taskList.map((task) => {
-            return (
-              <div className="taskout">
-                <span>{task}</span>
-                <i class="far fa-trash-alt"></i>
-              </div>
-            );
-          })}
+          {tasklistmapped}
         </div>
       </div>
     </div>
