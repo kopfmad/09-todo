@@ -29,7 +29,6 @@ function App() {
     return (
       <div className="taskout" key={Math.random()}>
         <span>{task}</span>
-        <span>{index}</span>
         <i className="far fa-trash-alt" onClick={() => deleteItem(index)}></i>
       </div>
     );
